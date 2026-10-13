@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: otuncares
+    runtime: static
+    branch: main
+    buildCommand: "echo 'Otuncares static assets ready'"
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
